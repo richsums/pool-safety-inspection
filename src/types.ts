@@ -60,4 +60,50 @@ export interface InspectionState {
   inspectorSignature: string;
   clientSignature: string;
   lastSaved: string | null;
+  quickCheckState: QuickCheckState | null;
+  currentDraftKey: string | null;
+}
+
+// ─── Quick Safety Check ───────────────────────────────────────────────────────
+
+export type QuickCheckObserved = 'observed' | 'not-observed' | 'na' | null;
+export type QuickCheckPriority = 'urgent' | 'recommended' | 'advisory' | '';
+
+export interface QuickCheckItem {
+  id: string;
+  observed: QuickCheckObserved;
+  severity: Severity;
+  notes: string;
+  photos: PhotoAttachment[];
+  recommendedAction: string;
+  reading?: string;
+}
+
+export interface QuickCheckPropertyInfo {
+  clientName: string;
+  propertyAddress: string;
+  techName: string;
+  date: string;
+  clientEmail: string;
+  clientPhone: string;
+}
+
+export interface QuickCheckState {
+  propertyInfo: QuickCheckPropertyInfo;
+  items: Record<string, QuickCheckItem>;
+  techSignature: string;
+}
+
+// ─── Drafts ───────────────────────────────────────────────────────────────────
+
+export interface DraftMeta {
+  key: string;
+  inspectionType: string | null;
+  propertyAddress: string;
+  savedAt: string;
+  percentComplete: number;
+}
+
+export interface DraftData extends DraftMeta {
+  state: Partial<InspectionState>;
 }

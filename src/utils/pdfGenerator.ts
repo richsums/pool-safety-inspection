@@ -2,7 +2,7 @@ import jsPDF from 'jspdf';
 import type { InspectionState, WaterQualityReadings } from '../types';
 import { CHECKLIST_SECTIONS } from '../checklistData';
 
-const BLUE = '#0077B6';
+const BLUE = '#1B3D8F';
 const GOLD = '#F5A623';
 const DARK = '#1e3a5f';
 

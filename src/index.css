@@ -1,2 +1,9 @@
 @import "tailwindcss";
 @variant dark (&:is(.dark *));
+
+:root {
+  --vip-blue: #1B3D8F;
+  --vip-gold: #F5A623;
+  --vip-green: #5A9E3A;
+  --vip-light-blue: #5BB8F5;
+}
